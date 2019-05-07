@@ -1,0 +1,42 @@
+ 
+<div *ngIf=wasAdded  class="container"> 
+
+   
+  <div class="row product-list" product-list *ngFor="let tempItem of productAdded">
+      <p> shopping-list</p>    
+      <div class="col-md-8">
+          id: {{ tempItem.id}}  
+      </div>
+  
+        <div class="col-md-8">
+        Name:   {{tempItem.name}}
+      </div>  
+  
+      <div class="col-md-8">
+        price:  {{tempItem.price}} $
+      </div>
+
+      <div class="col-md-8">
+          <button class="btn btn-primary"  
+          (click)= "removeItem(tempItem)"
+           >Remove from the Cart </button>
+        </div>
+
+        <div class="col-md-8">
+            <button class="btn btn-primary"  
+            (click)= "getCheckOut()"
+             >checkOut </button>
+          </div>
+  </div>
+
+<!-- 
+    <div *ngIf="!wasAdded"  class="col-md-8"  >
+        <p> Opps your cart is Empty</p>
+    </div> -->
+
+
+  
+
+     
+  
+   

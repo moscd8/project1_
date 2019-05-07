@@ -1,0 +1,64 @@
+ 
+  <!-- <nav class="navbar navbar-default header">
+    <div class="row ">
+      <div class="col-sm-3 nav-a">
+          <a routerLink="/home" class="navbar-brand">HOME</a>
+      </div>
+
+      <div class="col-sm-3  nav-a"> 
+          <a routerLink="/shopping-list">My Cart</a>
+      </div>
+      <div class="col-sm-3 nav-a">
+          <a routerLink="/product">add product</a>
+      </div>
+
+      <div class="col-sm-3 nav-a">
+          <a routerLink="/login">Login</a>
+      </div>
+      
+    </div>
+  </nav> -->
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light header">
+    <a class="navbar-brand" routerLink="/home">Shopping Store</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <ng-template  #anonymousUser>  
+            <li  class="nav-item" > 
+              <a class="nav-link"  routerLink="/login">Login</a> 
+        </li>
+      </ng-template> 
+          <li *ngIf="appUser; else anonymousUser" ngbDropdown class="nav-item dropdown">
+              
+              <div class="d-inline-block  " ngbDropdown #myDrop="ngbDropdown">
+                  <button class="dropdown-item  nav-link " id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">
+                    {{appUser .name }} 
+                  </button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownManual">
+                      <a class="nav-link"  ngbDropdownItem  routerLink="/my/orders" >MY Orders</a>
+                      <ng-container *ngIf="appUser.isAdmin">
+                        <a class="nav-link" ngbDropdownItem routerLink="/admin/products" >Manage Products</a>
+                        <a class="nav-link" ngbDropdownItem routerLink="/admin/orders" >Manage Orders</a>
+                      </ng-container>
+
+                      <a class="nav-link" ngbDropdownItem  (click)="logout()" >Log Out </a>
+                  </div>
+                </div> 
+
+
+            </li>
+      </ul>
+      
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2 " type="search" placeholder="Search for items" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+   

@@ -1,0 +1,13 @@
+.header{
+    /* border: 2px solid gray; */
+    margin-bottom: 4%;
+}
+nav-a.a{
+    border: green;
+    color: red !important;
+}
+#dropdownManual :hover, :active{
+    /* background-color: darkslategray !important;
+    color: white  !important; 
+    text-decoration: transparent; */
+}

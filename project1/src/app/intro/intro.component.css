@@ -1,0 +1,31 @@
+.intro{
+    /* font-family */
+    margin-top: 4%;
+    /* font-size: 25px; */
+    color:  #3d3d4b;
+}
+.sub-text{
+    /* font-size: 24px; */
+    color:  #6a6adf;
+}
+
+.intro > p{
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    /* color:  black; */
+}
+.dicover , .t-shirts , .footwear ,.accessories {
+    border: 1px solid blue;
+    /* margin:  2px ; */
+    padding: 2%;
+    padding-right: 1px ;
+}
+
+.subscribe {
+    /* margin: 2%; */
+    margin-top: 2%;
+    padding: 2%;
+    border: 1px solid black;
+    text-align: center;
+}
+ 
