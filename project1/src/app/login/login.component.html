@@ -1,19 +1,11 @@
 <div class="container">
-  <p> logging with google </p>
-
-  <button (click)="login()" class="btn btn-primary"> 
-      Logging With Google
-  </button>
-</div>
-
-<div class="container">
   
     <form #userform="ngForm" (ngSubmit)="onSubmit(userform)">
-      {{userform.value.username}}
-      {{username.className | json}}
+      <!-- {{userform.value.username}}
+      {{username.className | json}} -->
       <hr/>
-      {{userModel | json}}
-      <hr/>
+      <!-- {{userModel | json}} -->
+      <!-- <hr/> -->
 
     
       <div class="form-group">
@@ -32,8 +24,35 @@
       </div>
       
     <!-- </div> -->
-      <button [disabled]="userform.form.invalid" class="btn btn-primary" type="submit"> Submit</button>
+       
           
+          <div class="row">
+            <div class="col-md-2">
+                <button [disabled]="userform.form.invalid" class="btn btn-primary" type="submit"> Submit</button>
+            </div>
+             <div class="col-md-4">
+                <div class="logging-google">
+                    <button (click)="login()" class="btn btn-primary loging-google" > 
+                        Log in With Google
+                      </button>          
+
+             </div> 
+            
+            </div>
+          </div>
+
+          
+ 
+      
+
+
+      <!-- <div class="container">
+        <p> logging with google </p>
+      
+        <button (click)="login()" class="btn btn-primary"> 
+            Logging With Google
+        </button>
+      </div> -->
           
 
     </form>

@@ -1,17 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/category.service';
 import { ProductService } from 'src/app/product.service';
-import { Router, ActivatedRoute } from '@angular/router';
-// import { fromEvent } from 'rxjs';
-import {take, first} from 'rxjs/operators';
- 
-// import "rxjs/add/observable/interval";
-import "rxjs/add/operator/take";
-import { TouchSequence } from 'selenium-webdriver';
-import { Observable } from 'rxjs';
-import { product } from 'src/app/product.module';
-// import "rxjs/add/operator/map";
-// import "rxjs/add/operator/bufferCount"
+import { Router, ActivatedRoute } from '@angular/router';  
+import "rxjs/add/operator/take"; 
+import { Observable } from 'rxjs'; 
+import { ProductModel } from 'src/app/product.module'; 
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
@@ -23,12 +16,10 @@ export class ProductFormComponent implements OnInit {
   id;
   
   constructor(
-      private categoryService: CategoryService, 
-      private productService: ProductService,
-      private route:ActivatedRoute,
-      private router:Router
-
-    ) 
+          private categoryService: CategoryService, 
+          private productService: ProductService,
+          private route:ActivatedRoute,
+          private router:Router  ) 
     { 
       this.categories$=categoryService.getCategories();   
       
@@ -44,15 +35,27 @@ export class ProductFormComponent implements OnInit {
  
  
 
-  save(product:product){
+  save(product:ProductModel){
     console.log(product); 
     if(this.id) 
       this.productService.update(this.id, product);
     else 
-      this.productService.create(product); 
-
+    this.productService.createWithHttp(product);   
     this.router.navigate(['admin/products']);
   }
+
+  //save with httpClient
+  
+  saveWithHttm(productTest:ProductModel){
+    this.productService.createWithHttp(productTest ).subscribe(  
+          (res:ProductModel)=> { 
+            console.log('res: '+ res)},
+          (error) => console.log('error: '+ error)
+        );
+ 
+  }
+
+
 
   delete(){
     if(!confirm('Are you sure you want to delete this product')) return ;

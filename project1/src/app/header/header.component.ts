@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../shoppingCart.service';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../shered/services/auth.service';
 import { Appuser } from '../modules/app-user';
 @Component({
   selector: 'app-header',

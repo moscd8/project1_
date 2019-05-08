@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core'; 
-import { AuthGuardService } from './auth-guard.service';
-import { AuthService } from './auth.service';
-import { UserService } from './user.service';
+import { AuthGuardService } from './auth-guard.service';  
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/internal/Observable';
 import { CanActivate } from '@angular/router';
+// import { AuthService } from './auth.service';
+
+import { AuthService } from './auth.service';
+import { UserService } from './user.service';
 
 
 
@@ -15,7 +17,9 @@ export class AdminAuthGuardService implements CanActivate{
  
   canActivate(): Observable<boolean>{ 
     return this.auth.appUser$
-    .map(appUser => appUser.isAdmin);
+    .map( appUser => 
+          appUser.isAdmin
+      );
      
   
 } 

@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component'; 
 // import { TestComponent } from './test/test.component';
 import { HeaderComponent } from './header/header.component';
-import { ProductComponent } from './product/product.component';
-import { productService } from './product/product.service';
+// import { ProductComponent } from './product/product.component';
+// import { productService } from './product/product.service';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
@@ -32,21 +32,23 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
  
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AuthService } from './auth.service';
-import { AuthGuardService } from './auth-guard.service';
-import { UserService } from './user.service';
-import { AdminAuthGuardService } from './admin-auth-guard.service';
+import { AuthService } from './shered/services/auth.service';
+import { AuthGuardService } from './shered/services/auth-guard.service';
+import { UserService } from './shered/services/user.service';
+import { AdminAuthGuardService } from './shered/services/admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { CategoryService } from './category.service';
 import {FormsModule } from '@angular/forms';
-import { ProductService } from './product.service';  
+import { ProductService } from './product.service';    
+ 
 import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent, 
     // TestComponent,
     HeaderComponent,
-    ProductComponent,
+    // ProductComponent,
     ShoppingCartComponent,
     LoginComponent,
     CheckoutComponent,
@@ -69,7 +71,7 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFireAuthModule,
     AngularFireDatabaseModule
   ],
-  providers: [productService,ShoppingCartService,AuthService, AuthGuardService, UserService,AdminAuthGuardService,CategoryService,ProductService ],
+  providers: [ShoppingCartService,AuthService, AuthGuardService, UserService,AdminAuthGuardService,CategoryService,ProductService ],
   bootstrap: [AppComponent]
 }) 
 export class AppModule { }
