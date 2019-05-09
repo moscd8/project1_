@@ -1,14 +1,13 @@
 
+
+
 <p>
-<a routerLink="/admin/products/new" class="btn btn-primary">  New Product </a>
+  <a routerLink="/admin/products/new" class="btn btn-primary">  New Product </a>
 </p>
 <p>
-  <input
-   #query
-   (keyup)="filter(query.value)"
-   type="search" class="form-control" placeholder="Search.."
+  <input   #query   (keyup)="filter(query.value)"
+     type="search" class="form-control" placeholder="Search.."
   >
-  
 </p>
 
 
@@ -18,8 +17,91 @@
   <ul *ngFor="let data of dataset | filter: searchText">
     <li>{{data}}</li>
   </ul> -->
+ 
+          <table class="table table-striped" [mfData]="filterProducts" #mf="mfDataTable" [mfRowsOnPage]="5">
+              <thead>
+              <tr>
+                    
+                <th  >
+                      <mfDefaultSorter by="title">title</mfDefaultSorter>
+                  </th>
+                  <th  >
+                      <mfDefaultSorter by="price">price</mfDefaultSorter>
+                  </th>
+                  <th  >
+                      <mfDefaultSorter by="category">category</mfDefaultSorter>
+                  </th>
+                  <th  >
+                      <mfDefaultSorter by="Edit">Edit</mfDefaultSorter>
+                  </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let user of mf.data">
+                 
+                  <td>{{user.title}}</td>
+                  <td>{{user.price}}</td>
+                  <td > {{user.category}} </td>
+                   <td>               
+                      <a routerLink= "/admin/products/{{user.key}}">Edit </a>
+                   </td>  
+        
+              </tr>
+              </tbody>
+              <tfoot>
+              <tr>
+                  <td colspan="4">
+                      <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                       
+                  </td>
+              </tr>
+              </tfoot>
+            </table>
 
-<table class="table">
+ 
+
+
+<!-- 
+
+<data-table
+    [item]="item"
+    [itemCount]="itemCount"
+    [reload]="reloadItem($event)"
+>
+<data-table-column
+  [property]="title"
+  [header]="Title"
+  [sortable]="true"
+  [resizeable]="true"
+  
+>
+<data-table-column
+  [property]="price"
+  [header]="Price"
+  [sortable]="true"
+  [resizeable]="true"
+  
+>
+
+<ng-template #dataTableCell let-item="product">
+  {{product.price |currency:'USD':true}} 
+</ng-template>
+</data-table-column>
+
+<data-table-column
+  [property]="$key"  
+>
+
+<ng-template #dataTableCell let-item="product">
+  <a routerLink= "/admin/products/{{p.key}}">Edit </a>
+</ng-template>
+</data-table-column>
+
+
+
+</data-table> -->
+
+<!-- <table class="table">
   <thead>
     <tr>
       <th> Title </th>
@@ -28,17 +110,13 @@
     </tr>
   </thead>  
   <tbody>
-    <tr *ngFor="let p of products$ | async"> 
+    <tr *ngFor="let p of filterProducts  "> 
     <td>{{p.title}}</td>  
     <td>{{p.price}}</td>  
     <td> 
         
         <a routerLink= "/admin/products/{{p.key}}">Edit </a>
-
-        <!-- <a routerLink = "/destination/{{item.id}}"></a> -->
-
-        <!-- <option *ngFor="let c of categories$ | async" [value]="c.name">{{ c.name }}</option>  -->
-    </td>
+     </td>  
     </tr>
   </tbody>
 </table>
@@ -46,11 +124,8 @@
 
 <p> 
     <a  routerLink="/check-out" class="btn btn-primary"> Check Out </a>
-</p>
+
+</p> -->
 
 
-
-<ul > <li *ngFor="let p of productsTemp$ | async">
-    data {{p.price}}  
-    
-  </li> </ul>
+ 

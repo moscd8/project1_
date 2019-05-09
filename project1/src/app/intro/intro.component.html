@@ -1,4 +1,61 @@
 <div class="container">
+  
+  
+  <div class="row ">
+  <div class="col-3 ">
+    Categories
+    <div class="sticky-top">
+
+
+    <div class="list-group">
+      <a *ngFor="let c of categories$ |async "  
+      routerLink="/"
+      [queryParams]="{ category: test }"     class="list-group-item list-group-item-action" >
+        {{c.name}}
+      </a>
+<!-- 
+      <a [routerLink]="['/products']" [queryParams]="{ order: 'popular'}">
+        Products
+      </a> -->
+
+
+    </div>
+  </div>
+  </div>  
+  
+  <div class="col">
+    product
+      <!-- <app-tshirt>
+        </app-tshirt> -->
+
+
+        <div class="row">
+            <ng-container *ngFor="let p of products$  | async ; let i=index" >   
+              <div class="col">
+                <div  class="card" style="width: 15rem;">
+                <img class="card-img-top" [src]="p.imageUrl" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{p.title}}</h5>
+                  <p class="card-text">{{p.price | currency:'USD':true}}</p>
+                  <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+              </div>
+          
+            </div>
+            <div *ngIf="(i+1)%2 == 0 " class="w-100">
+             
+            </div>  
+          </ng-container>
+          </div>
+
+  </div>
+
+</div>
+ 
+ 
+</div>
+
+<!-- <div class="container">
   <div class="row intro">
     
     <h1>The Shopping Store | </h1> 
@@ -15,7 +72,10 @@
       DiCOVER 
     </div>
     <div class="col-md-6 t-shirts">
-      Shop T-shirts
+        Shop T-shirts
+      <app-tshirt>
+      </app-tshirt>
+
       </div>
       <div class="col-md-6 footwear">
           Shop FootWear 
@@ -30,4 +90,4 @@
       </div>
      
   </div>
-</div>
+</div> -->

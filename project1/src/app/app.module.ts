@@ -41,7 +41,9 @@ import { CategoryService } from './category.service';
 import {FormsModule } from '@angular/forms';
 import { ProductService } from './product.service';    
  
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http'; 
+import {DataTableModule} from "angular-6-datatable";
+import { TshirtComponent } from './product-per-type/tshirt/tshirt.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,7 @@ import { HttpClientModule } from '@angular/common/http';
     AdminOrdersComponent,
     AdminProductsComponent,
     ProductFormComponent,
+    TshirtComponent 
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule ,
+    DataTableModule
   ],
   providers: [ShoppingCartService,AuthService, AuthGuardService, UserService,AdminAuthGuardService,CategoryService,ProductService ],
   bootstrap: [AppComponent]

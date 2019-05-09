@@ -16,6 +16,9 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
 
 
 const routes: Routes = [ 
+  
+  {path: '', redirectTo:'/home', pathMatch:'full'},
+  
   // {path:'home',component: HeaderComponent},
   {path:'login',component:  LoginComponent},
   {path:'shopping-cart',component: ShoppingCartComponent},
@@ -48,12 +51,15 @@ const routes: Routes = [
     path:'admin/orders',
     component: AdminOrdersComponent ,
     canActivate: [AuthGuardService ,AdminAuthGuardService]  
-  }, /*   protect this route  */
+  } /*   protect this route  */
+
+  // {
+  //   path:'**',
+  //   component: pageNotFoundComponent 
+  //   
+  // } /*   protect this route  */
 
 
-
-  
-  {path: '', redirectTo:'/home', pathMatch:'full'}
   
 ];
 

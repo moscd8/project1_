@@ -21,7 +21,7 @@ export class ProductFormComponent implements OnInit {
           private route:ActivatedRoute,
           private router:Router  ) 
     { 
-      this.categories$=categoryService.getCategories();   
+      this.categories$=categoryService.getAll();   
       
       this.id=this.route.snapshot.paramMap.get('id');
       
@@ -40,7 +40,10 @@ export class ProductFormComponent implements OnInit {
     if(this.id) 
       this.productService.update(this.id, product);
     else 
-    this.productService.createWithHttp(product);   
+    this.productService.createWithHttp(product);  
+
+      
+
     this.router.navigate(['admin/products']);
   }
 
