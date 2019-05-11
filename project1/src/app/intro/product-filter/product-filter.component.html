@@ -1,0 +1,29 @@
+<p>
+  product-filter works!
+</p>
+
+
+<div class="list-group">
+    <a  (click)="reset()"
+    class="list-group-item list-group-item-action"
+    [class.active]="!category"
+    name="all"  
+  > All Category
+
+  </a>
+
+  <a (click)="onSelect(c)" *ngFor="let c of categories$ | async "  
+
+
+  class="list-group-item list-group-item-action" 
+  [class.active]="category === c.name"
+  >
+    {{c.name}}
+  </a>
+<!-- 
+  <a [routerLink]="['/products']" [queryParams]="{ order: 'popular'}">
+    Products
+  </a> -->
+
+
+</div>

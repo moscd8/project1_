@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductService } from 'src/app/product.service';
 import { Subscription, Observable, Subject } from 'rxjs'; 
 import { ProductModel } from 'src/app/product.module'; 
-import { DataTableModule } from 'angular-4-data-table';
+// import { DataTableModule } from 'angular-4-data-table';
 // import { DataTableModule } from 'Angular-6-datatable';
 // DataTableModule
 

@@ -5,42 +5,17 @@
   <div class="col-3 ">
     Categories
     <div class="sticky-top">
+      <app-product-filter (filterProductEvent)="filterProduct=$event"   [category]="category"   [products]="products"  [filterProduct]="filterProduct" ></app-product-filter>
 
-
-    <div class="list-group">
-      <a *ngFor="let c of categories$ |async "  
-      routerLink="/"
-      [queryParams]="{ category: test }"     class="list-group-item list-group-item-action" >
-        {{c.name}}
-      </a>
-<!-- 
-      <a [routerLink]="['/products']" [queryParams]="{ order: 'popular'}">
-        Products
-      </a> -->
-
-
-    </div>
   </div>
   </div>  
   
   <div class="col">
-    product
-      <!-- <app-tshirt>
-        </app-tshirt> -->
-
-
+    product 
         <div class="row">
-            <ng-container *ngFor="let p of products$  | async ; let i=index" >   
+            <ng-container *ngFor="let p of filterProduct; let i=index" >
               <div class="col">
-                <div  class="card" style="width: 15rem;">
-                <img class="card-img-top" [src]="p.imageUrl" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">{{p.title}}</h5>
-                  <p class="card-text">{{p.price | currency:'USD':true}}</p>
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-              </div>
-          
+              <app-product-card  [product]="p" ></app-product-card>
             </div>
             <div *ngIf="(i+1)%2 == 0 " class="w-100">
              

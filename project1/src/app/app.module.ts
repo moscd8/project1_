@@ -44,6 +44,8 @@ import { ProductService } from './product.service';
 import { HttpClientModule } from '@angular/common/http'; 
 import {DataTableModule} from "angular-6-datatable";
 import { TshirtComponent } from './product-per-type/tshirt/tshirt.component';
+import { ProductFilterComponent } from './intro/product-filter/product-filter.component';
+import { ProductCardComponent } from './intro/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { TshirtComponent } from './product-per-type/tshirt/tshirt.component';
     AdminOrdersComponent,
     AdminProductsComponent,
     ProductFormComponent,
-    TshirtComponent 
+    TshirtComponent,
+    ProductFilterComponent,
+    ProductCardComponent 
   ],
   imports: [
     BrowserModule,

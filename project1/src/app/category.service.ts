@@ -12,7 +12,7 @@ export class CategoryService {
     console.log("cate:");
     console.log(this.db.list('/products/categories'));
     return this.db.list('/products/categories', ref=> ref.orderByChild('name')).valueChanges(); 
-    
+     
   }
 
 }
