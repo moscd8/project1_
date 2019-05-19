@@ -42,7 +42,6 @@ export class ProductFilterComponent implements OnInit {
   } 
  
   reset(){
-
     this.filterProductEvent.emit(this.products);
   }
 }

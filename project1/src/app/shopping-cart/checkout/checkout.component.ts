@@ -9,17 +9,41 @@ import { Observable } from 'rxjs';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-  products$;
+  products ;
   // products: Observable<any[]>;
-  total: number;
+  sum=0;
   te:[];
+  
   constructor(private productService: ProductService) { 
-    this.products$=this.productService.getAll();  
+    // this.products$=
+    
+    this.productService.getAll().subscribe(res => this. products = res);  
 //  this.te= this.products$.ref();
 }
 
-  ngOnInit() {
+  async ngOnInit() {
     
+    if(this.products != null){
+      for(let item of this.products )
+      {
+         
+             this.sum+= item.price;
+             console.log(item.price);
+        
+      }
+     }  
+  }
+  onclick(){
+    
+    if(this.products != null){
+      for(let item of this.products )
+      {
+         
+             this.sum+= item.price;
+             console.log(item.price);
+        
+      }
+     }  
   }
  
       

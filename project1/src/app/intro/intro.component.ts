@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductService } from '../product.service';
 import { CategoryService } from '../category.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductModel } from '../product.module';
+import { ShoppingCartService } from '../shoppingCart.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-intro',
@@ -17,20 +19,21 @@ export class IntroComponent implements OnInit {
   router:Router;
   category:string;
   filterProduct:ProductModel[];
+  cart: any;
+  //  subscription = Subscription;
 
 
-  constructor(private catergoryService:CategoryService ,private productService:ProductService) { 
+  constructor(private catergoryService:CategoryService ,private productService:ProductService,
+   private shoppingservice: ShoppingCartService
+    ) { 
     // this.categories$= catergoryService.getAll();
     // this.products$= 
     productService.getAll().subscribe( (p:any[])=> {
       this.products= p;
       this.filterProduct= p;
-      
-
-
+       
     });
   
-
     // this.route.queryParamMap.subscribe(query => {
     //    this.category= query.get('category');
     // });
@@ -45,42 +48,34 @@ export class IntroComponent implements OnInit {
  
   //   });
   //   }  
+ 
+  // ngOnInit(){
 
+  // }
+  async ngOnInit() {
+  (await  this.shoppingservice.getCart()).snapshotChanges()
+  .subscribe(
+    cart=> {
+      //console.log(this.cart);
+      this.cart=cart; 
+    } 
+    );
+      
+  } 
+    // OnDestroy(){
+    //   console.log(this.cart);
+    //   // this.subscription
+    // }
 
-
-
-  //srvc
-  // getAll(){
-  //   return this.db.list('/products/products/').snapshotChanges().map(changes => {
-  //    return changes.map(c => 
-  //      ({ key: c.payload.key, ...c.payload.val() 
-         
-  //      })
-  //    ); 
-  //  }
-  //  )}
-
-  ngOnInit() {
   }
+  
+  
 
-  // onSelect(c){
-  //   console.log(c.name) ;
-  //   // this.router.navigate(['/category'],c.id);
-  //   // if(c.name== 'all'){
-  //   //   this.filterProduct=this.products;
-  //   // }else{
+  // ngOnDestroy(){
+  // this.subscription= null;
+  //  console.log("sa");
+  // }
 
-  //   this.category= c.name;
-  //   this.filterProduct = (this.category) ? 
-  //   this.products.filter(p => p.category === this.category): 
-  //   this.products;
-   
-  // } 
+ 
 
 
-
-     // this.route.queryParamMap.subscribe(query => {
-    //    this.category= query.get('category');
-    // });
-
-}

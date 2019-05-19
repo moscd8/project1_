@@ -13,13 +13,16 @@ export class HeaderComponent implements OnInit {
   appUser: Appuser;
 
   constructor(private scService:ShoppingCartService, private auth: AuthService) { 
-    this.item=this.scService.addedItems;
+    //this.item=this.scService.addedItems;
     auth.appUser$.subscribe(appUser => this.appUser= appUser);
  
   }
 
   ngOnInit() {
-    this.item=this.scService.addedItems;
+ //   this.item=this.scService.addedItems;
+
+
+
   }
 
   logout(){

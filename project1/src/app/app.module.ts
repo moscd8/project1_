@@ -79,7 +79,7 @@ import { ProductCardComponent } from './intro/product-card/product-card.componen
     AngularFireDatabaseModule ,
     DataTableModule
   ],
-  providers: [ShoppingCartService,AuthService, AuthGuardService, UserService,AdminAuthGuardService,CategoryService,ProductService ],
+  providers: [ShoppingCartService,AuthService, AuthGuardService, UserService,AdminAuthGuardService,CategoryService,ProductService,ShoppingCartService ],
   bootstrap: [AppComponent]
 }) 
 export class AppModule { }

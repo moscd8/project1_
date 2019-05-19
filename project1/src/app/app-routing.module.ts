@@ -28,6 +28,9 @@ const routes: Routes = [
   {path:'check-out',component: CheckoutComponent, canActivate: [AuthGuardService]}, /*   protect this route  */
   {path:'my/orders',component: MyOrdersComponent,canActivate: [AuthGuardService] }, /*   protect this route  */
   {path:'order-success',component: OrderSuccessComponent,canActivate: [AuthGuardService] }, /*   protect this route  */
+
+  {path:'cart',component: CheckoutComponent  }, /*   protect this route  */
+  
   
   {
     path:'admin/products/new',
