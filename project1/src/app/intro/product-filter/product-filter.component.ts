@@ -23,7 +23,7 @@ export class ProductFilterComponent implements OnInit {
   }
 
   onSelect(c){
-    console.log(c.name) ;
+   
     // this.router.navigate(['/category'],c.id);
     // if(c.name== 'all'){
     //   this.filterProduct=this.products;
@@ -32,17 +32,12 @@ export class ProductFilterComponent implements OnInit {
     this.category= c.name;
     this.filterProduct = (this.category) ? 
     this.products.filter(p => p.category === this.category): 
-    this.products;
-   
-    
-    console.log("onselect:");
-    console.log(this.filterProduct);
+    this.products; 
     this.filterProductEvent.emit(this.filterProduct);
 
   } 
  
   reset(){
-
     this.filterProductEvent.emit(this.products);
   }
 }

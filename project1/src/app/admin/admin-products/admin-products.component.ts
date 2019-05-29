@@ -26,44 +26,12 @@ export class AdminProductsComponent implements OnInit,OnDestroy  {
   constructor(private productService: ProductService) { 
 
   this.subscription=this.productService.getAll().subscribe( (products:any[])  => {
-  this.filterProducts=this.products=products;
-  // this.data=products;
-  // console.log("products:");
-  // console.log(products);
-  // console.log("this.products");
-  // console.log(this.products);
-  // console.log(this.filterProducts);
-  // console.log("this.filterProducts");
-
-
+  this.filterProducts=this.products=products; 
   });
   }  
 
   ngOnInit() {
-    
-    //recive the item from the firebase by http req
-    // this.productService.getWithHttp().subscribe( 
-    //   (data:ProductModel[]) =>{ 
-    //     console.log( "on-init ");
-    //     // console.log(  data );
-    //     this.productsTemp=data; 
-    //     // console.log( "on-init ");
-    //     console.log(  this.productsTemp);
-    //   }      
-    // );
-
-  //   this.data = [{'name':'Anil', 'anil.singh581@gmail.com' :'ssd', 'age' :'34', 'city':'Noida, UP, India' },
-  //   {'name':'Anil', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-  //   {'name':'Sunil', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-  //   {'name':'Alok', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-  //   {'name':'Tinku', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-  //   {'name':'XYZ', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-  //   {'name':'asas', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-  //   {'name':'erer', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-  //   {'name':'jhjh', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' }
-  //  ]
-
-  
+     
   this.productService.getAll().subscribe( (products:any[])  => {
     this.data=products;
     console.log(this.data);

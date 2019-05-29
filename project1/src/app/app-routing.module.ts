@@ -17,15 +17,15 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
 
 const routes: Routes = [ 
   
-  {path: '', redirectTo:'/home', pathMatch:'full'},
+  {path: '', redirectTo:'home', pathMatch:'full'},
   
-  // {path:'home',component: HeaderComponent},
+  // {path:'home',component: HeaderComponent,},
   {path:'login',component:  LoginComponent},
   {path:'shopping-cart',component: ShoppingCartComponent},
   // {path:'product',component: ProductComponent},
   {path:'home',component: IntroComponent },
-
-  {path:'check-out',component: CheckoutComponent, canActivate: [AuthGuardService]}, /*   protect this route  */
+  {path:'check-out',component: CheckoutComponent}, /*   protect this route  */
+  // {path:'check-out',component: CheckoutComponent, canActivate: [AuthGuardService]}, /*   protect this route  */
   {path:'my/orders',component: MyOrdersComponent,canActivate: [AuthGuardService] }, /*   protect this route  */
   {path:'order-success',component: OrderSuccessComponent,canActivate: [AuthGuardService] }, /*   protect this route  */
   
@@ -53,11 +53,11 @@ const routes: Routes = [
     canActivate: [AuthGuardService ,AdminAuthGuardService]  
   } /*   protect this route  */
 
-  // {
-  //   path:'**',
-  //   component: pageNotFoundComponent 
-  //   
-  // } /*   protect this route  */
+,  {
+    path:'**',
+    component:   IntroComponent
+    
+  } /*   protect this route  */
 
 
   

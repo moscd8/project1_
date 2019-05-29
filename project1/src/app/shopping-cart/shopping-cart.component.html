@@ -1,15 +1,15 @@
  
-<div *ngIf=wasAdded  class="container"> 
+<div *ngIf=productAdded2  class="container"> 
 
    
-  <div class="row product-list" product-list *ngFor="let tempItem of productAdded">
+  <div class="row product-list" product-list *ngFor="let tempItem of productAdded2">
       <p> shopping-list</p>    
       <div class="col-md-8">
           id: {{ tempItem.id}}  
       </div>
   
         <div class="col-md-8">
-        Name:   {{tempItem.name}}
+        Name:   {{tempItem.title}}
       </div>  
   
       <div class="col-md-8">
@@ -20,13 +20,17 @@
           <button class="btn btn-primary"  
           (click)= "removeItem(tempItem)"
            >Remove from the Cart </button>
+
+           <button class="btn btn-primary"  
+           (click)= "payItem(tempItem)"
+            >Pay  </button>
         </div>
 
-        <div class="col-md-8">
+        <!-- <div class="col-md-8">
             <button class="btn btn-primary"  
             (click)= "getCheckOut()"
              >checkOut </button>
-          </div>
+          </div> -->
   </div>
 
 <!-- 
